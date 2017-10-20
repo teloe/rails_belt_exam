@@ -1,0 +1,14 @@
+<h1>Login</h1>
+<% if @message %>
+	<p><%= @message %></p>
+<% elsif @error %>
+	<p><%= @error %></p>
+<% end %>
+
+<%= form_for(:session, url: session_path) do |f| %>
+	<%= f.text_field :email, placeholder: 'Email' %>
+	<%= f.text_field :password, placeholder: 'Password	' %>
+	<%= submit_tag 'Login' %>
+<% end %>
+<%= link_to 'Click here to register', online_lending_register_path %>
+

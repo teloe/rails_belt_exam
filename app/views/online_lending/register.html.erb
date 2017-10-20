@@ -1,0 +1,50 @@
+<h1>Registration Page</h1>>
+
+<h3>Lender</h3>
+	<% if @lender_errors %>
+		<% @lender_errors.each do |error| %>
+			<p><%= error %></p>
+		<% end %>
+	<% end %>
+	
+<%= form_for @lender, url: online_lending_lender_path do |f| %>
+	<%= f.text_field :first_name, placeholder: "First Name" %>
+	<br>
+	<%= f.text_field :last_name, placeholder: "Last Name" %>
+	<br>
+	<%= f.text_field :email, placeholder: "Email" %>
+	<br>
+	<%= f.text_field :password, placeholder: "Password" %>
+	<br>
+	<%= f.text_field :money, placeholder: "Money" %>
+	<br>
+	<%= submit_tag 'Register' %>
+<% end %>
+
+
+<%= link_to 'Already a Member?', online_lending_login_path %>
+
+<h3>Borrower</h3>
+<% if @borrower_errors %>
+	<% @borrower_errors.each do |error| %>
+		<p><%= error %></p>
+	<% end %>
+<% end %>
+
+<%= form_for @borrower, url: online_lending_borrower_path do |f| %>
+	<%= f.text_field :first_name, placeholder: "First Name" %>
+	<br>
+	<%= f.text_field :last_name, placeholder: "Last Name" %>
+	<br>
+	<%= f.text_field :email, placeholder: "Email"%>
+	<br>
+	<%= f.text_field :password, placeholder: "Password" %>
+	<br>
+	<%= f.text_field :purpose, placeholder: 'Need Money For' %>
+	<br>
+	<%= f.text_field :description, placeholder: "Description" %>
+	<br>
+	<%= f.text_field :money, placeholder: 'Amount Needed' %>
+	<br>
+	<%= submit_tag 'Register' %>
+<% end %>
